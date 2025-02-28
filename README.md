@@ -208,3 +208,96 @@ Admin Panel
 * Attempts to access unauthorized panels result in redirection to the appropriate panel.
 * Admins logging in through the user login are redirected to the admin dashboard.
 * Users logging in through the admin login are redirected to the user home screen.
+
+## Setup Instructions
+
+To set up and run the Cathago Project Submission application, please follow these steps:
+
+**1. Prerequisites:**
+
+* **Apache Tomcat Server:** You will need a running instance of Apache Tomcat Server. You can use XAMPP or any other Tomcat manager.
+* **MySQL 8:** Ensure you have MySQL 8 installed and running.
+* **Java 8+:** You must have Java Development Kit (JDK) version 8 or later installed.
+* **Modern Web Browser:** A modern web browser (Chrome, Firefox, Edge, Safari) is required.
+* **NetBeans or Microsoft Visual Studio Code:** (Optional) If you intend to modify the source code.
+
+**2. Database Setup:**
+
+* **Create Database:**
+    * Log in to your MySQL server using MySQL Workbench, the terminal, or bash.
+    * Create a database named `textanalyser`:
+        ```sql
+        CREATE DATABASE textanalyser;
+        USE textanalyser;
+        ```
+* **Import Database Backup:**
+    * Import the provided database backup file (`database/cathago_database.sql`) into the `textanalyser` database.
+    * Example using the command line:
+        ```bash
+        mysql -u <username> -p textanalyser < database/cathago_database.sql
+        ```
+        * Replace `<username>` with your MySQL username.
+* **ER Diagram:**
+    * An Entity-Relationship (ER) diagram (`database/cathago_er_diagram.png`) is included to provide a visual representation of the database schema.
+* **Configure Database Connection:**
+    * Modify the database connection details in the `backend_processes/DBConnection.java` file within your project's backend. Update the following parameters:
+        * `DB_URL`: The URL of your MySQL server (e.g., `jdbc:mysql://localhost:3306/textanalyser`).
+        * `DB_USER`: Your MySQL username.
+        * `DB_PASSWORD`: Your MySQL password.
+    * **Important:** If your MySQL server uses different credentials than those in the provided `DBConnection.java`, you must update the username and password in this file.
+
+**3. Application Deployment:**
+
+* **Deploy the WAR File:**
+    * A pre-built WAR file (`cathago.war`) is provided. You can directly deploy it to your Tomcat server.
+    * Copy the `cathago.war` file to the `webapps` directory of your Tomcat installation.
+    * Start or restart your Tomcat server.
+    * Tomcat will automatically deploy the application.
+
+**4. Configuration:**
+
+* **Upload Directory:**
+    * The application uses the following default paths:
+        * Documents: `D:\Cathago Test\App-data\Documents`
+        * Bert Model: `D:\Cathago Test\NLP Model\bert.onnx`
+    * If you need to change these paths, modify the following Java files:
+        * Document path: `backend_processes/Preprocessor.java`, `backend_processes/Documents.java`
+        * Bert model path: `backend_processes/semantic_processor.java`
+    * Make sure the Tomcat user has read and write permissions to the document upload directory.
+
+**5. Bert Model Setup:**
+
+* **Download the Model:**
+    * Download the `bert.onnx` model from the following link:
+        * `https://huggingface.co/google-bert/bert-base-uncased/blob/main/model.onnx`
+    * Alternatively, you can use Python to download and save the model with any necessary transformations.
+* **Place the Model:**
+    * Place the downloaded `bert.onnx` file in the `NLP Model` folder within your project directory.
+    * The final path should be `D:\Cathago Test\NLP Model\bert.onnx` (or your chosen path).
+    * Refer to the file `how to setup bert model` for further instructions.
+
+**6. Access the Application:**
+
+* **User Panel:**
+    * Open your web browser and navigate to `http://localhost:8080/Text_Analyser/The-App/Get-started.html`.
+* **Admin Panel:**
+    * Navigate to `http://localhost:8080/Text_Analyser/Admin-App/Get-started.html`.
+* **Default Index Page:**
+    * By default, accessing `http://localhost:8080/Text_Analyser/` will redirect you to the user panel login/registration page: `http://localhost:8080/Text_Analyser/The-App/Get-started.html`.
+
+**7. First Time Use:**
+
+* Register a user account.
+* Log in as the registered user to use the user panel.
+* Log in as the admin to use the admin panel.
+* The admin credentials will be in the database. If you need to create a new admin, insert a new record into the admin table.
+
+**Troubleshooting:**
+
+* **Database Connection Issues:** Check your database connection details in `backend_processes/DBConnection.java`.
+* **Deployment Errors:** Check the Tomcat logs for any errors.
+* **File Upload Issues:** Verify the upload directory permissions and configuration.
+* **Bert Model Issues:** Ensure the `bert.onnx` file is correctly placed and accessible.
+* **Path issues:** If you change the default paths, ensure they are correct in the java files.
+
+**Note:** Replace placeholders like `<username>` and paths with your actual values.
