@@ -1,0 +1,7 @@
+ML model is too large to upload so i am leaving the link to download the model
+
+"https://huggingface.co/google-bert/bert-base-uncased/blob/main/model.onnx"
+
+Desination path: Model can be downloaded from here and in the project it has to placed in the folder called "NLP Model" with name as bert.onnx
+
+This works or alternatively it can be downloaded using python and be saved with python transform and copy into the same destination
