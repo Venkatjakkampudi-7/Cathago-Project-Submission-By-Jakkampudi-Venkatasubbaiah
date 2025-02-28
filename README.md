@@ -66,6 +66,7 @@ This application provides a credit-based document scanning and matching system w
     * Users can view their past scan history and results.
     * Users can download their scan history.
     * A button toggles the visibility of past scans.
+      
    Past scans 
    ![pastscans](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Button%20to%20close%20past%20scans.png)
 
@@ -122,11 +123,11 @@ Admin Panel
 * **Top Searches:** Displays the most frequently searched topics and keywords.
 * **Scan History:** Displays the overall scan history.
 
- Top users
- ![top users](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Top%20users%20by%20usage.png)
+  Top users
+  ![top users](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Top%20users%20by%20usage.png)
 
- Top searches
- ![top searches](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Most%20searched%20words%20and%20topics.png)
+  Top searches
+  ![top searches](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Most%20searched%20words%20and%20topics.png)
 
 ### User Management Page:
 
@@ -137,32 +138,32 @@ Admin Panel
     * View user profiles, scan history, and credit request history.
     * Search for users by first or last name.
 
-   User Panel
-   ![user panel](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20management.png)
+  User Panel
+  ![user panel](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20management.png)
 
-   User profile
+  User profile
   ![user profile for admin](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20profile%20view%20for%20admin.png)
 
-   User scan history
+  User scan history
   ![schistory](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Scan%20history.png)
 
-    User past credit requests
-    ![request list](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20history%20of%20user.png)
+  User past credit requests
+  ![request list](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20history%20of%20user.png)
 
-     User search
-     ![user search](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Fetching%20users.png)
+  User search
+  ![user search](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Fetching%20users.png)
 
-     Mannual credit adjustment by admin
-     ![credit adjustment](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Mannual%20credit%20adjusment%20by%20admin.png)
+  Mannual credit adjustment by admin
+  ![credit adjustment](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Mannual%20credit%20adjusment%20by%20admin.png)
   
-   Admin managing the user subscription
-   ![subsription management](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20subscription%20management.png)
+  Admin managing the user subscription
+  ![subsription management](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20subscription%20management.png)
 
-   Account status
-   ![account status](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20account%20status%20management.png)
+  Account status
+  ![account status](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/User%20account%20status%20management.png)
 
-     User search
-     ![User search](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Search%20bar%20in%20admin.png)
+  User search
+  ![User search](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Search%20bar%20in%20admin.png)
 
 ### Credit Management Page:
 
@@ -171,14 +172,14 @@ Admin Panel
     * Admins can grant or reject requests (default 5 credits, adjustable by admin).
     * Admins can search for credit requests.
  
-    Credit requests
-     ![Credit requests](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20at%20admin.png)
+  Credit requests
+  ![Credit requests](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20at%20admin.png)
 
-   Credit requests
-     ![credit request none](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/credit%20Request%20panel%20admin.png)
+  Credit requests
+  ![credit request none](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/credit%20Request%20panel%20admin.png)
 
-     Credit update
-     ![Credit update](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20update%20by%20admin.png)
+  Credit update
+  ![Credit update](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/4424190fcf79e50d0b5906b2c3a96d7bb9d386f8/Results/Credit%20request%20update%20by%20admin.png)
     
 * **Packs (Subscriptions):**
     * Admins can manage subscription packs (currently only the starter pack with 20 daily credits).
@@ -186,11 +187,11 @@ Admin Panel
     * Admins can create new packs.
     * Admins can search for packs.
  
-    Pack panel
-    ![packs](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Subscription%20handling%20for%20admin.png)
+  Pack panel
+  ![packs](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/Subscription%20handling%20for%20admin.png)
 
-     Creating new pack
-   ![new pack](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/creating%20new%20subscription%20by%20admin.png)
+  Creating new pack
+  ![new pack](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/36e692fde4e50e102481971387f280687a8c1ddd/Results/creating%20new%20subscription%20by%20admin.png)
 
 ## Security and Access Control:
 
