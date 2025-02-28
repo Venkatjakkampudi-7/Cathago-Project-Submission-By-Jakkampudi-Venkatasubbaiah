@@ -11,6 +11,7 @@ This project repository contains a web-based document scanning and matching appl
 * [Setup Instructions](#setup-instructions)
 * [Algorithms and Database Design](#Algorithms-and-Database-Design)
 * [Code Explanation](#Code-Explanation)
+* [API Endpoints and Testing](#API-Endpoints-and-Testing)
 
 
 ## Technologies Used:
@@ -430,3 +431,67 @@ To set up and run the Cathago Project Submission application, please follow thes
 5.  **Credit Management:**
     * Credit transactions are handled within the Java servlets, updating the `users` and `log` tables as needed.
     * Credit requests are stored and managed within the `credit_request` table.
+
+## API Endpoints and Testing
+
+This application's back-end provides a comprehensive set of API endpoints for both user and admin functionalities. These endpoints have been thoroughly tested using Postman to ensure their reliability and performance.
+
+### API Endpoint List
+
+* **User Authentication:**
+    * `http://localhost:8080/Text_Analyser/Login` (POST): Returns the user's login status, privilege level, and account status.
+* **Admin Analytics:**
+    * `http://localhost:8080/Text_Analyser/Analytics?req=1` (GET): Returns a list of top users based on credit usage.
+    * `http://localhost:8080/Text_Analyser/Analytics?req=2` (GET): Returns a list of top searched topics and keywords.
+    * `http://localhost:8080/Text_Analyser/Analytics?req=3` (GET): Returns the scan history.
+* **Pack Management:**
+    * `http://localhost:8080/Text_Analyser/Pack_Manager?req=1` (GET): Returns details of all subscription packs.
+    * `http://localhost:8080/Text_Analyser/Pack_Manager?req=2&skey='+skey` (GET): Returns details of a specific searched subscription pack.
+    * `http://localhost:8080/Text_Analyser/Pack_Manager` (POST): Creates a new subscription pack.
+    * `http://localhost:8080/Text_Analyser/Pack_Manager` (PATCH): Updates an existing subscription pack.
+    * `http://localhost:8080/Text_Analyser/Pack_Manager?req=1` (GET): Returns data used to match user packs.
+* **Credit Management:**
+    * `http://localhost:8080/Text_Analyser/Credit_Manager?req=1` (GET): Returns a list of credit requests.
+    * `http://localhost:8080/Text_Analyser/Credit_Manager?req=2&skey='+skey` (GET): Returns a specific searched credit request.
+    * `http://localhost:8080/Text_Analyser/Credit_Manager` (PATCH): Processes and updates a credit request.
+* **User Management:**
+    * `http://localhost:8080/Text_Analyser/User_Manager?req=3&userid='+uid` (GET): Returns the profile of a specific user.
+    * `http://localhost:8080/Text_Analyser/User_Manager?req=4&userid='+uid` (GET): Returns the scan list of a specific user.
+    * `http://localhost:8080/Text_Analyser/User_Manager?req=5&userid='+uid` (GET): Returns the credit request list of a specific user.
+    * `http://localhost:8080/Text_Analyser/User_Manager?req=1` (GET): Returns a list of all users.
+    * `http://localhost:8080/Text_Analyser/User_Manager?req=2&skey='+skey` (GET): Returns a list of searched users.
+    * `http://localhost:8080/Text_Analyser/User_Manager` (PATCH): Processes and updates a user's profile.
+* **Document Scanning and Matching:**
+    * `http://localhost:8080/Text_Analyser/ScanUpload` (POST): Initiates a document scan and returns matching documents.
+    * `http://localhost:8080/Text_Analyser/ScanUpload` (PATCH): Initiates a document rematch and returns matching documents.
+    * `http://localhost:8080/Text_Analyser/ScanUpload?scanid='+sid` (GET): Returns the outcomes of a specific document based on its previous results.
+    * `http://localhost:8080/Text_Analyser/Match_Comparisions?doc1=' + encodeURIComponent(doc1) + '&doc2=' + encodeURIComponent(doc2)` (GET): Returns data for comparing two documents.
+* **User Profile and Credits:**
+    * `http://localhost:8080/Text_Analyser/Profile?req=3` (GET): Returns the number of credits remaining for the logged-in user.
+    * `http://localhost:8080/Text_Analyser/Credit_request` (POST): Submits a new credit request to the admin.
+    * `http://localhost:8080/Text_Analyser/Profile?req=1` (GET): Returns the logged-in user's profile details.
+    * `http://localhost:8080/Text_Analyser/Profile?req=2` (GET): Returns the previous scans of the logged-in user.
+* **Session Management:**
+    * `http://localhost:8080/Text_Analyser/Signout` (GET): Signs out the user and invalidates the session.
+
+### Testing with Postman
+
+Postman was used to test each of these endpoints, verifying:
+
+* Correct request and response formats.
+* Accurate data retrieval and manipulation.
+* Proper handling of different request types (GET, POST, PATCH).
+* Appropriate error handling and status codes.
+
+### Database Connection Management and Security
+
+To ensure data integrity and prevent potential issues such as data leaks or thread sleeping, the following measures were implemented:
+
+* **MySQL Process Monitoring:**
+    * The `mysql show processlist` command was used extensively during testing to monitor active database connections.
+    * This ensured that all connections were properly closed after use and that no threads were left in a sleep state, which could lead to resource exhaustion or data leaks.
+* **Java Resource Management:**
+    * All Java code interacting with the database is carefully structured using `try-with-resources` blocks.
+    * This guarantees that database connections and prepared statements are automatically closed, even in the event of exceptions.
+    * Proper connection closing prevents open connections, which could lead to data corruption or security vulnerabilities.
+    * This robust error handling and resource management ensures the application's stability and security.
