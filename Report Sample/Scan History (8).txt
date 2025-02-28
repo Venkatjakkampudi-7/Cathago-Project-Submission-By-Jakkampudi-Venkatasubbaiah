@@ -1,0 +1,56 @@
+                                          Scan History                                          
++----------------------------------------------------------------------------------------------+
+| No.   | Filename                                           | Date         | Time             |
+|----------------------------------------------------------------------------------------------|
+| 1     | Scan History (2).txt                               | 27-02-2025   | 09:15:52 PM      |
+| 2     | Chota Bheem.txt                                    | 27-02-2025   | 08:12:48 PM      |
+| 3     | my favorite cartoons.txt                           | 27-02-2025   | 12:56:56 PM      |
+| 4     | mi-7.txt                                           | 27-02-2025   | 11:24:35 AM      |
+| 5     | Popoyee.txt                                        | 27-02-2025   | 11:22:39 AM      |
+| 6     | radicaltest-2.txt                                  | 27-02-2025   | 11:19:01 AM      |
+| 7     | admintest.txt                                      | 27-02-2025   | 08:09:42 AM      |
+| 8     | radicaltest-2.txt                                  | 27-02-2025   | 07:43:54 AM      |
+| 9     | radicaltest.txt                                    | 27-02-2025   | 07:36:27 AM      |
+| 10    | the rabbit.txt                                     | 26-02-2025   | 11:14:26 AM      |
+| 11    | what i love to watch.txt                           | 26-02-2025   | 10:20:10 AM      |
+| 12    | my favorite cartoons.txt                           | 26-02-2025   | 10:15:12 AM      |
+| 13    | my favorite show.txt                               | 26-02-2025   | 10:13:58 AM      |
+| 14    | What i like to watch.txt                           | 26-02-2025   | 10:12:33 AM      |
+| 15    | Jimcarrey.txt                                      | 26-02-2025   | 09:05:18 AM      |
+| 16    | Movie gerenes.txt                                  | 26-02-2025   | 08:39:48 AM      |
+| 17    | Paw patrol.txt                                     | 26-02-2025   | 08:28:40 AM      |
+| 18    | mi-7.txt                                           | 26-02-2025   | 08:24:29 AM      |
+| 19    | Venom.txt                                          | 26-02-2025   | 08:02:49 AM      |
+| 20    | Ghost rider.txt                                    | 26-02-2025   | 08:01:39 AM      |
+| 21    | Shaun the sheep.txt                                | 26-02-2025   | 07:58:05 AM      |
+| 22    | Tjone.txt                                          | 26-02-2025   | 07:53:24 AM      |
+| 23    | Tjtwo.txt                                          | 26-02-2025   | 07:49:58 AM      |
+| 24    | Kick.txt                                           | 25-02-2025   | 07:43:57 PM      |
+| 25    | Oggy.txt                                           | 25-02-2025   | 12:39:55 AM      |
+| 26    | shinchan.txt                                       | 24-02-2025   | 07:10:07 PM      |
+| 27    | Scooby-doo.txt                                     | 24-02-2025   | 07:09:04 PM      |
+| 28    | Bugs bunny.txt                                     | 24-02-2025   | 07:08:19 PM      |
+| 29    | Courage the cowardly dog.txt                       | 24-02-2025   | 07:05:43 PM      |
+| 30    | Dexter laboratory.txt                              | 21-02-2025   | 02:02:25 PM      |
+| 31    | Horrid Henry.txt                                   | 21-02-2025   | 02:02:19 PM      |
+| 32    | Jhony test.txt                                     | 21-02-2025   | 02:01:56 PM      |
+| 33    | Jack the samurai.txt                               | 21-02-2025   | 02:01:46 PM      |
+| 34    | Popoyee.txt                                        | 21-02-2025   | 02:01:21 PM      |
+| 35    | Tarzan.txt                                         | 21-02-2025   | 01:59:26 PM      |
+| 36    | Ninja Hattori.txt                                  | 21-02-2025   | 01:58:49 PM      |
+| 37    | Doraemon.txt                                       | 21-02-2025   | 01:57:36 PM      |
+| 38    | Chota Bheem.txt                                    | 21-02-2025   | 01:57:23 PM      |
+| 39    | Krishna aur Balaram.txt                            | 21-02-2025   | 01:57:14 PM      |
+| 40    | Hello jvs.txt                                      | 21-02-2025   | 01:39:38 PM      |
+| 41    | admin.txt                                          | 21-02-2025   | 01:07:51 AM      |
+| 42    | tech-stack.txt                                     | 21-02-2025   | 12:54:17 AM      |
+| 43    | Databasecreation.txt                               | 21-02-2025   | 12:28:10 AM      |
+| 44    | Task2.txt                                          | 21-02-2025   | 12:27:48 AM      |
+| 45    | Safe.txt                                           | 21-02-2025   | 12:27:35 AM      |
+| 46    | myself2.txt                                        | 21-02-2025   | 12:25:52 AM      |
+| 47    | myself.txt                                         | 21-02-2025   | 12:17:44 AM      |
+| 48    | My thoughts.txt                                    | 21-02-2025   | 12:17:03 AM      |
+| 49    | Algorithm for Monthly report.txt                   | 21-02-2025   | 12:13:57 AM      |
+| 50    | cted.txt                                           | 20-02-2025   | 12:50:30 PM      |
++----------------------------------------------------------------------------------------------+
+Total Scans: 50
