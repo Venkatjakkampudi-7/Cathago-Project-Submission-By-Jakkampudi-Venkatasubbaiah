@@ -18,6 +18,7 @@ This application provides a credit-based document scanning and matching system w
 
 * Users can register and log in using the `Get-started.html` page.
 * After successful login, users are redirected to the `Home.html` page.
+* ![User login screenshot](Results/User login or register.png)
 
 ### Home Page Functionality:
 
