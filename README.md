@@ -9,6 +9,8 @@ This project repository contains a web-based document scanning and matching appl
 * [Admin Panel](#admin-panel)
 * [Security and Access Control](#security-and-access-control)
 * [Setup Instructions](#setup-instructions)
+* [Algorithms and Database Design](#Algorithms-and-Database-Design)
+* [Code Explanation](#Code-Explanation)
 
 
 ## Technologies Used:
@@ -301,3 +303,130 @@ To set up and run the Cathago Project Submission application, please follow thes
 * **Path issues:** If you change the default paths, ensure they are correct in the java files.
 
 **Note:** Replace placeholders like `<username>` and paths with your actual values.
+
+## Code Explanation
+
+### Front-End (User Panel)
+
+* **`assets/js/profile.js`**:
+    * Handles user profile-related functionality. This includes displaying user profile information and enabling users to update their profile details.
+* **`assets/js/Authentication.js`**:
+    * Manages user authentication processes. This includes user login and registration, ensuring secure access to the application.
+* **`assets/js/Documentscanner.js`**:
+    * Implements the core document scanning and matching functionality. This script allows users to upload documents, initiate the scanning process, and view matching results.
+* **`assets/js/Get-started.js`**:
+    * Provides JavaScript functionality for the `Get-started.html` page, which serves as the sign-in and registration portal for users.
+* **`assets/js/Report_dowload.js`**:
+    * Handles the download of reports, allowing users to save scan and match data.
+* **`assets/js/style.js`**:
+    * Contains additional JavaScript code for styling and enhancing user interface interactions.
+
+### Front-End (Admin Panel)
+
+* **`assets/js/Authentication.js`**:
+    * Manages admin authentication processes, ensuring secure access to the admin panel.
+* **`assets/js/Dashboard.js`**:
+    * Handles the functionality of the admin dashboard, including displaying analytics such as top users, top searches, and scan history.
+* **`assets/js/credit-manager.js`**:
+    * Manages credit requests from users and the administration of subscription packs.
+* **`assets/js/user-manager.js`**:
+    * Manages user accounts, including adjusting credits, changing subscriptions, and viewing user histories.
+
+### Back-End (Java)
+
+* **`Admin_Backend` Package**:
+    * Contains classes that manage admin-specific functionalities, including analytics, credit management, pack management, and user management.
+* **`Backend.Auth` Package**:
+    * Handles authentication, session management, and data retrieval for both users and admins. This includes classes for login, registration, profile management, and data processing.
+* **`Document_Processor` Package**:
+    * Implements the document processing logic, including the integration of the NLP model. This package contains classes for pre-processing documents, integrating the `bert.onnx` model (`Semantic_Processor.java`), and processing similarity results.
+* **`backend_processes` Package**:
+    * Contains core classes for database interaction (`DBConnection.java`), security, and data management. This package includes classes for managing credits, users, and packs.
+
+### Key Back-End Classes
+
+* **`DBConnection.java`**:
+    * Handles the establishment and management of database connections to the MySQL database.
+* **`Login.java`, `Register.java`, `Signout.java`**:
+    * Manage user and admin authentication, including login, registration, and session termination.
+* **`ScanUpload.java`**:
+    * Handles the uploading of documents to the server.
+* **`Semantic_Processor.java`**:
+    * Integrates the `bert.onnx` model for semantic document matching.
+* **`Credits.java`**:
+    * Manages user credit balances and transactions.
+* **`Users.java`**:
+    * Manages user data and account information.
+* **`Pack.java`**:
+    * Manages subscription packs and their configurations.
+* **`Analytics.java`**:
+    * Retrieves and processes analytics data for the admin dashboard.
+* **`Credit_Manager.java`**:
+    * Manages credit requests from users and processes them.
+* **`User_Manager.java`**:
+    * Manages user accounts, including modifications and data retrieval.
+* **`Pre_Processor.java`**:
+    * Handles the pre processing of the uploaded documents, cleaning and preparing them for the NLP model.
+
+### Communication
+
+* **Fetch API**:
+    * The front-end utilizes the Fetch API to communicate with the back-end Java servlets. This allows for asynchronous data retrieval and updates, enhancing the user experience.
+
+### Testing
+
+* **Test Files**:
+    * The project includes test files (`Preprocessor_test.java`, `mainprocessor_test.java`, etc.) to ensure the reliability and functionality of critical back-end components.
+
+## Algorithms and Database Design
+
+### Algorithms
+
+* **Cosine Similarity:**
+    * The application utilizes the cosine similarity algorithm to determine the similarity between documents.
+    * The `Pre_Processor.java` file plays a crucial role in this process. It breaks down documents into keywords, calculates their frequencies, and stores this data in the database.
+    * Initially, the top 100 documents are selected based on the frequency data stored in the database.
+    * Then, cosine similarity is applied again to these 100 documents, and the top 20 documents are chosen.
+    * Finally, only documents with a similarity score of 50% or higher are presented to the user.
+* **BERT Model Integration:**
+    * If the BERT model is enabled for the subscription pack, the `Semantic_Processor.java` file is used.
+    * This file tokenizes the documents and calculates similarity based on semantic understanding, enhancing the accuracy of document matching.
+* **Regular Similarity Processing:**
+    * The `Similarity_Processor.java` file handles the standard cosine similarity calculations.
+
+### Database Design
+
+* **Significance:**
+    * The project's database design is implemented without the use of cron jobs or database triggers.
+    * All credit management and outcome processing are handled within the application's Java code, ensuring control and maintainability.
+* **Database Tables:**
+    * `users`: Stores user account information.
+    * `subscription_slab`: Manages subscription packs and their details.
+    * `log`: Logs application activities and events.
+    * `credit_request`: Stores user credit requests.
+    * `scanlist`: Stores information about user scans.
+    * `doc_data`: Stores document keyword frequencies.
+    * `semantic_score`: Stores semantic similarity scores from the BERT model.
+    * `similarity_score`: Stores cosine similarity scores.
+    * `stopwords`: Stores a list of stopwords used in document processing.
+    * `rescanlist`: Stores information about user rescans.
+
+  Database ER Diagram
+  ![Er diagram](https://github.com/Venkatjakkampudi-7/Cathago-Project-Submission/blob/973110f47cd0cb5291b026a3641bb1bff765e2cc/Database%20Desgin%20and%20Er%20diagrams/cathago%20database%20design.png)
+
+### Data Flow
+
+1.  **Document Upload:**
+    * Users upload documents through the front-end.
+2.  **Preprocessing:**
+    * The `Pre_Processor.java` file processes the uploaded document, extracts keywords, and calculates frequencies.
+    * The keyword frequencies are stored in the `doc_data` table.
+3.  **Similarity Calculation:**
+    * The `Similarity_Processor.java` file calculates cosine similarity based on the stored keyword frequencies.
+    * if the subscription pack has the bert model enabled, then the `Semantic_Processor.java` file is used.
+    * Similarity scores are stored in the `similarity_score` or `semantic_score` tables.
+4.  **Result Display:**
+    * The application retrieves the top matching documents from the database and displays them to the user.
+5.  **Credit Management:**
+    * Credit transactions are handled within the Java servlets, updating the `users` and `log` tables as needed.
+    * Credit requests are stored and managed within the `credit_request` table.
