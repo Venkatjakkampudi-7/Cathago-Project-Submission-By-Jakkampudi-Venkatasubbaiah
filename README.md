@@ -1,2 +1,3 @@
 # Cathago-Project-Submission
-This project is 
+This project reprository consists web based document scanning and matching application
+
