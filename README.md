@@ -2,6 +2,15 @@
 
 This project repository contains a web-based document scanning and matching application.
 
+# Navigation
+* [Technologies Used](#technologies-used)
+* [Application Overview](#application-overview)
+* [User Panel](#user-panel)
+* [Admin Panel](#admin-panel)
+* [Security and Access Control](#security-and-access-control)
+* [Setup Instructions](#setup-instructions)
+
+
 ## Technologies Used:
 
 * **Front-End:** HTML5, CSS3, VanillaJS (Fetch API)
