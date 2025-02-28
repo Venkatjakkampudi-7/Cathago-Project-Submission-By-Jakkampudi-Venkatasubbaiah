@@ -45,32 +45,6 @@ INSERT INTO `credit_requests` VALUES (1,2,'2025-02-22 10:25:46','Granted',5),(2,
 UNLOCK TABLES;
 
 --
--- Table structure for table `deductions`
---
-
-DROP TABLE IF EXISTS `deductions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `deductions` (
-  `deadid` int NOT NULL AUTO_INCREMENT,
-  `scanid` int NOT NULL,
-  PRIMARY KEY (`deadid`),
-  KEY `ref_deductions_scans_idx` (`scanid`),
-  CONSTRAINT `ref_deductions_scans` FOREIGN KEY (`scanid`) REFERENCES `scanlist` (`scanid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `deductions`
---
-
-LOCK TABLES `deductions` WRITE;
-/*!40000 ALTER TABLE `deductions` DISABLE KEYS */;
-INSERT INTO `deductions` VALUES (2,18),(1,19);
-/*!40000 ALTER TABLE `deductions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `doc_data`
 --
 
@@ -342,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-28  9:44:37
+-- Dump completed on 2025-02-28 10:56:04
