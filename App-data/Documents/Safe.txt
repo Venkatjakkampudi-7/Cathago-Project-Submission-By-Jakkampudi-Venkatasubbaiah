@@ -1,0 +1,413 @@
+<html>
+<head>
+    <title>Data-entries</title>
+
+    <link rel="stylesheet" href="showteamscss.css" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+    table
+    {
+        border: 1px solid black;
+        width: 70%;
+        margin-bottom: 5%;
+    }
+    .rs1
+    {
+        font-family: 'Open Sans', sans-serif;
+        width: 30%;
+        text-align: left;
+        text-indent: 20%;
+        font-size: large;
+    }
+    .rs2
+    {
+        font-family: 'Open Sans', sans-serif;
+        width: 70%;
+        font-size: large;
+        height:auto;
+    }
+    .rs3
+    {
+        font-family: 'Open Sans', sans-serif;
+        width: 100%;
+        font-size: large;
+        height:auto;
+    }
+    input
+    {
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: large;
+        float: left;
+    }
+    select
+    {
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: large;
+        float: left;
+    }
+    .but 
+    {
+        cursor:pointer;
+        border: none;
+        width: auto;
+        height: auto;
+        float: right;
+        margin-right: 3%;
+        color: black;
+        background-color: gold;
+        transition: all 0.5s ease-in-out;
+    }
+    .but:hover
+    {
+        color: white;
+        background-color: red;
+        transition: all 0.5s ease-in-out;
+    }
+    .but2
+    {
+        cursor:pointer;
+        border: none;
+        width: auto;
+        height: auto;
+        float: right;
+        margin-right: 3%;
+        color: black;
+        background-color: gold;
+        transition: all 0.5s ease-in-out;
+    }
+    .but2:hover
+    {
+        color: white;
+        background-color: red;
+        transition: all 0.5s ease-in-out;
+    }
+    textarea
+    {
+        width: 100%;
+        float: left;
+    }
+    .but3
+    {
+        cursor:pointer;
+        border: none;
+        width: auto;
+        height: auto;
+        float: right;
+        margin-right: 3%;
+        margin-top: 20%;
+        margin-bottom: 20%;
+        color: black;
+        background-color: gold;
+        transition: all 0.5s ease-in-out;
+    }
+    .but3:hover
+    {
+        color: white;
+        background-color: red;
+        transition: all 0.5s ease-in-out;
+    }
+    .fbtn
+    {
+        cursor: pointer;
+        height: 100%;
+        width: min-content;
+        text-align: center;
+        margin-left: 40%;
+        margin-right: 10%;
+        padding: 1% 2% 1% 2%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: large;
+        color: white;
+        background-color: #040622;
+        transition: all 0.5s ease-in-out;
+    }
+    .fbtn:hover
+    {
+        background-color: red;
+        color: white;
+        transition: all 0.5s ease-in-out;
+    }
+    .showoptions
+    {
+        float: left;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        width: 35%;
+        height: 40%;
+    }
+    .getquery
+    {
+        float: left;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        width: 25%;
+        height: 40%;
+    }
+    .tron
+    {
+        cursor: pointer;
+        text-align: center;
+        float: right;
+        margin-right: 0%;
+        width: 15%;
+        height: 40%;
+    }
+</style>
+</head>
+<body onload="functionality(1)">
+<?php
+    include('connection1.php');
+?>
+<?php
+    $options = array(
+        'Select Reference By',
+        'KEY',
+        'Name',
+        'Mail',
+        'Email',
+        'Cont1',
+        'Cont2',
+        'Cont3',
+        'Degree',
+        'Clgname',
+        'Univname',
+        'Ugdata',
+        'Passout',
+        'Proname',
+        'Specname',
+        'Gitid',
+        'Behanceid',
+        'Dribbleid',
+        'Portfolio',
+        'Location',
+        'Country',
+        'Address',
+        'Appliedrole',
+        'Profiletype',
+        'Projects',
+        'Experience',
+        'Skills',
+        'Certification',
+        'Filler'
+    );
+    
+    $option = $selectedOption = "";
+    $name=$mail=$email=$cont1=$cont2=$cont3=$degree = "";
+    $gitid = $Prows = $projects = $location = $profiletype = $Srows = $Crows = $certifications = "";
+    $clgname = $univname = $ugdata = $passout = $proname = $specname = "";
+    $behanceid = $dribbleid = $portfolio = $country = $address = $appliedrole = $profiletype = "";
+    $projects = $experience = $skills = $certifications = $filler = "";
+?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+    {
+        // Retrieve the selected option and query from the form
+        $columnName = $_POST['columnname'];
+        $query = $_POST['query'];
+
+        // Construct the SQL query
+        $stmt = $con->prepare("SELECT * FROM superset WHERE $columnName = ?");
+        $stmt->bind_param("s", $query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if there is a match
+        if ($result->num_rows > 0) 
+        {
+            $row = $result->fetch_assoc();
+            // Set the retrieved values into the respective form fields
+            $name = $row['Name'];
+            $mail = $row['Mail'];
+            $email = $row['Email'];
+            $cont1 = $row['Cont1'];
+            $cont2 = $row['Cont2'];
+            $cont3 = $row['Cont3'];
+            $degree = $row['Degree'];
+            $clgname = $row['Clgname'];
+            $univname = $row['Univname'];
+            $ugdata = $row['Ugdata'];
+            $passout = $row['Passout'];
+            $proname = $row['Proname'];
+            $specname = $row['Specname'];
+            $gitid = $row['Gitid'];
+            $behanceid = $row['Behanceid'];
+            $dribbleid = $row['Dribbleid'];
+            $portfolio = $row['Portfolio'];
+            $location = $row['Location'];
+            $country = $row['Country'];
+            $address = $row['Address'];
+            $appliedrole = $row['Appliedrole'];
+            $profiletype = $row['Profiletype'];
+
+            $projects = $row['Projects'];
+            $Prows = substr_count($projects, "\n") + 1;
+
+            $experience = $row['Experience'];
+            $Erows = substr_count($experience, "\n") + 1;
+
+            
+            $selectedOption = isset($_POST['columnname']) ? $_POST['columnname'] : 'Select Reference By';
+
+
+            $skills = $row['Skills'];
+            $Srows = substr_count($skills, "\n") + 1;
+
+            $certifications = $row['Certification'];
+            $Crows = substr_count($certifications, "\n") + 1;
+
+            $filler = $row['Filler'];
+        } 
+        else
+        {
+            $rr=0;
+            echo "<div><input type='button' value=><h2>No matching data found in the database.</h2></div>";
+        }
+
+        // Close the statement
+        $stmt->close();
+    }
+
+    // Close the database connection
+    $con->close();
+?>
+    <center><div class="showtime"><h1>VIEW SUPERSET</h1></div></center>
+    <div class="direct" id="direct">
+        <a href="Admin.php" id="link">Return to Admin Panel</a>
+        <input type="button" class="brett" style="width:80%;" id="colhold" onclick="collapseorhold()" value="&#8594;">
+    </div>
+    <center>
+    <form id="inspect" action="" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td class="rs1">Query
+                    <td class="rs2">
+                        <select id="columnname" name="columnname" class="showoptions">
+                            <?php foreach ($options as $option): ?>
+                            <option <?php if ($option == $selectedOption) echo 'selected'; ?>><?php echo $option; ?></option>
+                            <?php endforeach; ?>
+                        </select><label style="float:left;">Matches</label><input type="text" class="getquery" name="query" value="" placeholder="Enter Query"><input type="botton" class="tron" value="Filter" onclick="Tron()" readonly>
+                    </td>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <!--Display form-->
+    <table id="viewentry">
+        <tr><th colspan="2"><h2>View Entry</h2></th></tr>
+        <tr><td class="rs1">Name<td class="rs2" colspan="2"><input type="text" id="name" name="Name" value="<?php echo $name;?>" placeholder="Enter Name" readonly></td></tr>
+        <tr>
+            <td class="rs1">Email-Id
+                <td class="rs2">
+                    <input type="text" id="mail" name="mail"  value="<?php echo $mail;?>" placeholder="Enter Email-id" readonly>
+                    <input type="text" id="email" name="email"  value="<?php echo $email;?>" placeholder="Enter 2nd Email-id" readonly>
+                </td>
+            </td>
+        </tr>
+        <tr>
+        <td class="rs1">Contact Number
+                <td class="rs2">
+                    <input type="number" id="cont1" name="cont1" value="<?php echo $cont1;?>" placeholder="Enter Contact number" readonly>
+                    <input type="number" id="cont2" name="cont2" value="<?php echo $cont2;?>" placeholder="Enter 2nd Contact number" readonly>
+                    <input type="number" id="cont3" name="cont3" value="<?php echo $cont3;?>"placeholder="Enter 3rd Contact number" readonly>
+                </td>
+            </td>    
+        </tr>
+        <tr><td class="rs1">Collage Name<td class="rs2"><input type="text" id="clgname" name="clgname" value="<?php echo $clgname;?>" placeholder="Collage Name" readonly></td></tr>
+        <tr><td class="rs1">University Name<td class="rs2"><input type="text" id="univname" name="univname" value="<?php echo $univname;?>" placeholder="University Name" readonly></td></tr>
+        <tr>
+            <td class="rs1">Program Type
+                <td class="rs2">
+                    <input type="text" id="degree" name="degree" value="<?php echo ($degree != 'Select Degree') ? $degree : ''; ?>" readonly>
+                    <input type="text" id="ugpg" name="ugpg" readonly>
+            </td>
+        </tr>
+        <tr><td class="rs1">Passout Year<td class="rs2"><input type="number" min=1950 max=2030 id="passout" name="passout" value="<?php echo $passout;?>" placeholder="Enter Passout year" readonly></td></tr>
+        <tr><td class="rs1">Program Name<td class="rs2"><input type="text" id="proname" name="proname" value="<?php echo $proname;?>" placeholder="Enter Program Name" readonly></td></tr>
+        <tr><td class="rs1">Specialization<td class="rs2"><input type="text" id="specname" name="specname" value="<?php echo $specname;?>" placeholder="Enter Specialization if any"></td></tr>
+        <tr><td class="rs1">GitHub-Id<td class="rs2"><input type="text" id="Gitid" name="Gitid" value="<?php echo $gitid;?>" placeholder="Enter GitHub-Id if any"></td></tr>
+        <tr><td class="rs1">Behance Link<td class="rs2"><input type="text" id="Behanceid" name="Behanceid" value="<?php echo $behanceid;?>" placeholder="Enter Behance Link if any"></td></tr>
+        <tr><td class="rs1">Dribble Link<td class="rs2"><input type="text" id="Dribbleid" name="Dribbleid" value="<?php echo $dribbleid;?>" placeholder="Enter Dribble Link if any"></td></tr>
+        <tr><td class="rs1">Portfolio Website<td class="rs2"><input type="text" id="Portfolio" name="Portfolio" value="<?php echo $portfolio;?>" placeholder="Enter Portfolio Website if any"></td></tr>
+        <tr>
+            <td class="rs1">Project URLS
+                <td class="rs2">
+                    <textarea class="tarea" rows="<?php echo $Prows;?>" cols="30" id="teamof4" name="Projects" placeholder="Enter Porject URLS" readonly><?php echo $projects;?></textarea>
+                    <div style="display:inline-block;">
+                    </div>
+                </td>
+            </td>
+        </tr>
+        <tr><td class="rs1">Current Location<td class="rs2"><input type="text" id="Location" name="Location" value="<?php echo $location;?>" placeholder="Enter Current Location" readonly></td></tr>
+        <tr><td class="rs1">Country<td class="rs2"><input type="text" id="Country" name="Country" value="<?php echo $country;?>" placeholder="Enter Country" readonly></td></tr>
+        <tr><td class="rs1">Address<td class="rs2"><textarea id="Address" name="Address" placeholder="Enter Address if any"><?php echo $address;?></textarea></td></tr>
+        <tr><td class="rs3" colspan=2><span>Phase-2 Data</span></td></tr>
+        <tr><td class="rs1">Applied Role<td class="rs2"><input type="text" id="Appliedrole" name="Appliedrole" value="<?php echo $appliedrole;?>" placeholder="Enter Applied Role" readonly></td></tr>
+        <tr>
+            <td class="rs1">Profile Type
+                <td class="rs2">
+                    <input type="text" id="profiletype" name="profiletype" value="<?php echo ($profiletype != 'Select Profile Type') ? $profiletype : ''; ?>" readonly>
+                    <textarea class="tarea2" rows="<?php echo $Srows;?>" cols="30" id="teamof2" name="Experience" placeholder="Enter Experience" readonly><?php echo $experience; ?></textarea>
+                    <div style="display:inline-block;">
+                    </div>
+                </td>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="rs1">Skills
+                <td class="rs2">
+                    <textarea class="tarea" rows="<?php echo $Srows;?>" cols="30" id="teamof3" name="Skills" placeholder="Enter Skill-set" readonly><?php echo $skills;?></textarea>
+                    <div style="display:inline-block;">
+                    </div>
+                </td>
+            </td>
+        </tr>
+        <tr>
+            <td class="rs1">Certifications
+                <td class="rs2">
+                    <textarea class="tarea" rows="<?php echo $Crows;?>" cols="30" id="teamof4" name="Certifications" placeholder="Enter Certifications" readonly><?php echo $certifications;?></textarea>
+                    <div style="display:inline-block;">
+                    </div>
+                </td>
+            </td>
+        </tr>
+        <tr><td class="rs1">Work filled By<td class="rs2"><input type="text" id="Filler" name="filler" value="<?php echo $filler;?>" placeholder="Enter filler's name" readonly></td></tr>
+    </table>
+</center>
+<center>
+    <div class="last">END OF SUPERSET</div>
+</center>
+<script>
+
+    var mailcount=0;
+    var contcount=0;
+
+    function functionality(i)
+    {
+        collapseorhold();
+    }
+    function Tron()
+    {
+        document.getElementById('inspect').submit();
+    }
+    function resetit()
+    {
+        location.reload();
+        alert("Form cleared !");
+    }
+    function submitit(i)
+    {
+        alert("Query in progress");
+        document.getElementById('i').submit();
+    }
+</script>
+<?php
+?>
+<script src="showteamsjs.js" type="text/javascript"></script>
+</body>
+</html>

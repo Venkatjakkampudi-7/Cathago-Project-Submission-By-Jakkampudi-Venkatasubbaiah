@@ -1,0 +1,22 @@
+.custom-scrollbar {
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Apply styles to the scrollbar globally or for specific elements */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 7px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #999; /* Scrollbar thumb color */
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+}

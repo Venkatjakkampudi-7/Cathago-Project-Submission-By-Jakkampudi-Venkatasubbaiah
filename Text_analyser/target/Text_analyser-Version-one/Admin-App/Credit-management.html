@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Admin-App</title>
+        <meta content="Text analysis, Doc Scanner" name="description">
+        <meta content="Text analysis, Doc Scanner" name="keywords">
+        
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        
+        <style>
+            .gradient-text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                background: linear-gradient(to right, lightblue, lightcoral); /* Using color names */
+                background-clip: text;
+                -webkit-background-clip: text; /* For older WebKit browsers */
+                color: transparent;
+              }
+        </style>
+    </head>
+    
+    <body class="d-flex flex-column min-vh-100 bg-light">
+        <header class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5 ps-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="Dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="User-management.html">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown position-relative top-0 end-0 me-3">
+                    <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="signout()">Signout</a>
+                </div>
+            </div>
+        </header>
+        <!--End of Header-->
+        
+        <main id="main" class="container-fluid flex-grow-1 menu">
+            <!-- Scanning Section -->
+            <section class="container-fluid mb-4 mt-4">
+                <!-- Document Scanner -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-light" id="requestsection" href="#">Credit Requests</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="packsection" id="packsection" href="#">Manage Packs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Scan Section-->
+                <section class="pt-3" id="the-request">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row p-3 d-flex align-items-center justify-content-center">
+                                <div class="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="skeyreq" name="skeyreq" value="" placeholder="Search....">
+                                        <button type="button" class="btn btn-sm btn-danger" onclick="clearrequestsearch()">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="table table-responsive text-center p-3">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>User Name</th>
+                                            <th>Current Usage</th>
+                                            <th>Credit Count</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="creditrequests">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of the Scan Section-->
+
+                <!--Credit Section-->
+                <section class="d-none pt-3" id="the-packs">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row p-3 d-flex align-items-center justify-content-center">
+                                <div class="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="skeypack" name="skeypack" value="" placeholder="Search....">
+                                        <button type="button" class="btn btn-sm btn-danger" onclick="clearpacksearch()">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-primary" onclick="launchmodal()">&plus; Pack</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="table table-responsive text-center p-3">
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Pack Name</th>
+                                            <th>Credit Limit</th>
+                                            <th>Users</th>
+                                            <th>Ai Power</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="packlist">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of the Credit Section-->
+                <!-- End of Document Scanner -->
+            </section>
+            <!-- End of the scanning section -->
+        </main>
+        
+        <footer class="container-fluid bg-dark text-light p-1 d-flex align-items-center justify-content-center">
+            <span class="gradient-text">Cathago's Document Scanning and Matching System</span>
+        </footer>
+       
+        <!-- Modal -->
+        <div class="modal fade" id="The-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">New Pack</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="dismissmodal()"></button>
+                    </div>
+                    <!-- Arena -->
+                    <div class="modal-body container-fluid" id="arena">
+                        <form id="packfrm">
+                            <div class="row g-4">
+
+                                    <div class="col-lg-6 col-sm-12">
+                                        <span id="packnamewarning" class="d-none text-danger">This pack name already exists !</span>
+                                        <label class="form-label" for="packname">Pack Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="packname" name="packname" maxlength="24" value="" placeholder="Enter Pack Name">
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <label class="form-label" for="creditcount">Credit Limit</label>
+                                        <input type="number" class="form-control form-control-sm" min="0" max="1000" id="creditcount" name="creditcount" value="0" placeholder="Enter Credit Count">
+                                    </div>
+
+
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" onclick="cccontrollerone('createpack')">Create Pack</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End of the Arena -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Developer Scripts -->
+        <script src="assets/js/style.js"></script>
+        <script src="assets/js/credit-manager.js"></script>
+        <!-- End of the Developer Scripts -->
+        
+    </body>
+</html>

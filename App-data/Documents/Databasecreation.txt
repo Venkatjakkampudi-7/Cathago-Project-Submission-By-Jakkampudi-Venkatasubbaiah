@@ -1,0 +1,64 @@
+>> Database : Teamandworks
+>> Datatables : 3
+
+1. Teams
+2. Superset
+3. Connection
+
+Superset:
+---------
+create Table Superset(
+Name varchar(255),
+Emailid varchar(2550),
+Contact varchar(2550),
+Clgname varchar(255),
+Univname varchar(255),
+Protype varchar(20),
+Ugdetails varchar(255),
+passingyear Int,
+proname varchar(255),
+specialization varchar(255),
+Gitid varchar(255),
+Behanceid varchar(255),
+Dribbleid varchar(255),
+portfolio varchar(255),
+projects varchar(2550),
+location varchar(510),
+country varchar(255),
+Address varchar(2550),
+Enteredby varchar(255)
+);
+
+insert into superset(Name,Emailid,Contact,Clgname,Univname,Protype,Ugdetails,passingyear,proname,specialization,Gitid,Behanceid,Dribbleid,portfolio,projects,location,country,Address,Enteredby) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+
+>> Number of columns = 19.
+
+Teams:
+------
+create Table Teamit(
+Name varchar(255),
+Email varchar(255), 
+ContactNo varchar(255), 
+TeamID varchar(255), 
+Status boolean,
+Members varchar(2000),
+Image blob, 
+Password varchar(255)
+);
+
+insert into Teamit(Name, Email, Contact, TeamID, Image, Password) values (?,?,?,?,?,?);
+
+>> Number of columns = 8
+
+Connection:
+-----------
+create table Connection(
+Name varchar(255),
+Status boolean,
+tasks int
+);
+
+insert into Connection(Name,Status,tasks) values (?,?,?);
+
+>> Number of columns = 3

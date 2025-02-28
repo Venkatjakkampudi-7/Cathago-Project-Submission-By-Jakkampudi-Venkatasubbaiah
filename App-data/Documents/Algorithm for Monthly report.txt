@@ -1,0 +1,28 @@
+Algorithm for Monthly report
+----------------------------
+Display the available reports in Months format
+______________________________________________________________
+| Sno | Month  | Year |                Report                |
+|-----|--------|------|--------------------------------------|
+|  1  | June   | 2024 | Click Here to get June-2024 Report   |
+|-----|--------|------|--------------------------------------|
+|  2  | July   | 2024 | Click Here to get July-2024 Report   |
+|-----|--------|------|--------------------------------------|
+|  3  | August | 2024 | Click Here to get August-2024 Report |
+--------------------------------------------------------------
+
+Step-1: Start.
+Step-2: User selects only the year from the list !
+Step-3: The list only shows the year's available !
+Step-4: After selecting the year display all the months available !
+Step-5: Use get to retrive the list.
+Step-6: After attaining the month from the user using the month and year generate the report.
+Step-7: While generation check weather all the days available generate the date+1 in every iteration and build the work-book each date is a sheet in work-book.
+Step-8: Finally, save the report with the name => month-year.
+Step-9: Stop.
+
+Rules:
+------
+1.The year should be in the list if and only if there exists atleast one record in that year.
+2.The month should be displayed if and only if there exists atleast one daily report in that month.
+3.The daily report will only be generated in the workbook if there is a complete set of daily report.

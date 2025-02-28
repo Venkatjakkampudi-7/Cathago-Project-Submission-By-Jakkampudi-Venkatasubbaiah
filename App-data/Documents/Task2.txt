@@ -1,0 +1,22 @@
+Project Flow:
+-------------
+There are 2 Login pages 
+1.For the Admin page
+2.For the Members
+
+Admin page:
+===========
+1.Home
+2.Teams -> view teams, Add teams, assign tasks
+3.View resultset
+
+view-teams: Select team and then we can see the profile of the person.
+Add-teams : 
+-----------
+Add new teams and members
+            ** When a new team is added for the first time the user should enter the same details for the 2nd time it is for saftety whenever the user is trying to add more people in the same group then they enter only once.
+
+Members page:
+=============
+1.Adding superset data
+2.Viewing data

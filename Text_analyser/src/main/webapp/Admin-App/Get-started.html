@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Admin-App</title>
+        <meta content="Text analysis, Doc Scanner" name="description">
+        <meta content="Text analysis, Doc Scanner" name="keywords">
+        
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <style>
+            .gradient-text {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(to right, lightblue, lightcoral); /* Using color names */
+                background-clip: text;
+                -webkit-background-clip: text; /* For older WebKit browsers */
+                color: transparent;
+              }
+        </style>
+    </head>
+    
+    <body class="d-flex flex-column min-vh-100 bg-dark text-dark">
+        
+        <main id="main" class="container-fluid flex-grow-1 menu">
+            
+            <h1 class="text-center p-3 pb-5 m-5 gradient-text">Cathago's Document Scanning and Matching System</h1>
+            
+            <!--Section for the signin and registration-->
+            <section class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <!--Panel-->
+                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 p-2 border rounded-2 bg-light">
+                        <div class="row">
+                            <div class="col-12">
+                                <!--Navigation Bar-->
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item w-100 text-center fw-bold">
+                                        <a class="nav-link bg-danger text-light active" aria-current="page"  href="javascript:void(0);" id="signintab">Sign In</a>
+                                    </li>
+                                </ul>
+                                <!--End of the Navigation Bar-->
+                            </div>
+                        </div>
+                        
+                        <!--Login Section-->
+                        <div class="row p-3 pb-0" id="signin-now">
+                            <form class="col-12" id="signinfrm">
+                                <div class="mb-3 text-danger d-none fw-bold" id="Warning">
+                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="Username">User Name</label>
+                                    <input type="text" class="form-control border-start-0 border-end-0 border-top-0" id="username" name="username" minlength="4" value="" placeholder="Enter Username" required/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="Password">Password</label>
+                                    <input type="password" class="form-control border-start-0 border-end-0 border-top-0" id="Password" name="password" minlength="8" value="" placeholder="Enter Password" required/>
+                                </div>
+                                
+                                <div class="mb-3 text-danger fw-bold d-none" id="catpchawarning">Captcha Didn't Match !</div>
+
+                                <div class="mb-4">
+                                    <label class="form-label" for="Captchaelement">Captcha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text user-select-none fs-5 fw-bold" style="text-decoration:line-through;" id="captcha"></span>
+                                        <input type="text" aria-label="Captchaelement" class="form-control user-select-none" id="Captchaelement" name="Captchaelement" minlength="6" maxlength="6" placeholder="Enter Captcha" required/>
+                                        <button type="button" class="btn btn-sm btn-primary" id="captchgenerator">Regenerate</button>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-sm btn-danger" id="signinbtn" disabled>Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End of the Login Section -->
+                        
+                    </div>
+                    <!--End of the section-->
+                </div>
+            </section>
+            <!--End of the signin and registration section-->
+
+        <script src="assets/js/Authentication.js"></script>
+    </body>
+</html>

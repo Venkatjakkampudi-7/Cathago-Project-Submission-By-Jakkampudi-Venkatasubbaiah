@@ -1,0 +1,3 @@
+Front-end - Reactjs, Type script, Redux, Next js
+Back-end - Java spring boot, Java Hibernate
+Database - MySQL

@@ -1,0 +1,43 @@
+My thoughts: 
+************
+
+Agriculture & pest control:
+===========================
+-- Intensity of damage caused by pests on a scale of [0-10] or [0-100] and an estimate of how long will plant/crop sustain in that particular condition.
+-- Soil conditions, weather conditions.
+-- types of pests.
+-- Timeline of crop and images/
+-- Classification of damage using images.
+-- Chemicals used to prevent further damage/to terminate pests.
+-- Determining quality of plants after the usage of chemicals and damage caused by pests.
+
+Agriculture:
+~~~~~~~~~~~~
+>> Kharif, Rabi and Zaid crops.
+
+>> Timeline & crops.
+
+>> Which crops are prone to get pests/insects.
+
+>> important: Determining the ways to control without use of chemicals.
+   "Other methods for pest control other than using chemical sparys such as hybrid plants/crops, any planting crops together so we can control the pests and insects."
+
+Reqirements:
+`````````````
+|| Differentiating the damage into grades depending upon the images.
+|| Important: "Determining the types of pests and which type of pest is causing the damage by processing image so that we can determine intensity of pest and the time left to control the pests."
+
+Software: 
+'''''''''
+That sorts out:
+ 
+1)which pest is causing the damage to the crop.
+2)How to control it.
+3)Ways to control it such as use of chemicals, natural ways to combact the pests, or scope of devoloping a hybrid crop which is resistant to pests.
+4)The software should also collect data of the region of crop common types of pests in that region and get better overtime.
+5)Finally, It should also be able to determine the quality of the crop after pest control.
+
+Doubts:
+"""""""
+Can type of soil, ph of soil, weather conditions have effect on pests?
+So, Manipulation of these factors control pests perhaps we can opt to natural changes rather than spraying chemicals and causing damage to humans.

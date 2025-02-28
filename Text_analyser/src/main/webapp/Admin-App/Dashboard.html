@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Admin-App</title>
+        <meta content="Text analysis, Doc Scanner" name="description">
+        <meta content="Text analysis, Doc Scanner" name="keywords">
+        
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        
+        <style>
+            .gradient-text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                background: linear-gradient(to right, lightblue, lightcoral); /* Using color names */
+                background-clip: text;
+                -webkit-background-clip: text; /* For older WebKit browsers */
+                color: transparent;
+              }
+        </style>
+    </head>
+    
+    <body class="d-flex flex-column min-vh-100 bg-light">
+        <header class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5 ps-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="User-management.html">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Credit-management.html">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown position-relative top-0 end-0 me-3">
+                    <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="signout()">Signout</a>
+                </div>
+            </div>
+        </header>
+        <!--End of Header-->
+        
+        <main id="main" class="container-fluid flex-grow-1 menu">
+            <!-- Scanning Section -->
+            <section class="container-fluid mb-4 mt-4">
+                <!-- Document Scanner -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-light" id="topusersection" href="javascript:void(0);">Top Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"id="topsearchsection" href="javascript:void(0);">Most Searched</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"id="scanhistorysection" href="javascript:void(0);">Scan History</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Scan Section-->
+                <section class="pt-3" id="top-users">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table table-responsive text-center p-3" style="max-height: 70vh !important; overflow-y: auto;">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Current Usage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userlist">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of the Scan Section-->
+
+                <!--Credit Section-->
+                <section class="d-none pt-3" id="top-searches">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table table-responsive text-center p-3" style="max-height: 70vh !important; overflow-y: auto;">
+                                <table class="table table-hover table-bordered">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>Word</th>
+                                            <th>Frequency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="wordlist">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of the Credit Section-->
+                
+                <!--Credit Section-->
+                <section class="d-none pt-3" id="all-scans">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table table-responsive text-center p-3" style="max-height: 70vh !important; overflow-y: auto;">
+                                <table class="table table-hover table-bordered">
+                                    <thead class="text-center bg-light">
+                                        <tr>
+                                            <th>Document</th>
+                                            <th>Scan date</th>
+                                            <th>Scan time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="scanlist">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of the Credit Section-->
+                <!-- End of Document Scanner -->
+            </section>
+            <!-- End of the scanning section -->
+        </main>
+        
+        <footer class="container-fluid bg-dark text-light p-1 d-flex align-items-center justify-content-center">
+            <span class="gradient-text">Cathago's Document Scanning and Matching System</span>
+        </footer>
+       
+        <!-- Developer Scripts -->
+        <script src="assets/js/style.js"></script>
+        <script src="assets/js/Dashboard.js"></script>
+        <!-- End of the Developer Scripts -->
+        
+    </body>
+</html>
